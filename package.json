@@ -1,6 +1,31 @@
 {
+    "name": "kiyovu-api",
+    "version": "1.0.0",
     "private": true,
-    "type": "module",
+    "description": "A Laravel backend API that implement the Internal Rules of Kiyovu Sports Club.",
+    "keywords": [
+        "Laravel",
+        "Kiyovu",
+        "Internal",
+        "Rules",
+        "Football",
+        "Club"
+    ],
+    "homepage": "https://github.com/Dabani/kiyovu-api#readme",
+    "bugs": {
+        "url": "https://github.com/Dabani/kiyovu-api/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Dabani/kiyovu-api.git"
+    },
+    "license": "MIT",
+    "author": "MAKUTA Robert",
+    "type": "API",
+    "main": "postcss.config.js",
+    "directories": {
+        "test": "tests"
+    },
     "scripts": {
         "build": "vite build",
         "dev": "vite"
