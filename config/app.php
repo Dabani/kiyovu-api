@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Kiyovu IRMS'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,6 +54,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost:5173'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -65,7 +66,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => env('APP_TIMEZONE', 'Africa/Kigali'),
 
     /*
     |--------------------------------------------------------------------------
