@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lookups\LuAssetCategory;
+use App\Models\Lookups\LuContractType;
 use App\Models\Lookups\LuDisciplinaryCaseSource;
 use App\Models\Lookups\LuDisciplinarySanction;
 use App\Models\Lookups\LuDisputeGround;
 use App\Models\Lookups\LuDocumentClassification;
 use App\Models\Lookups\LuElectedPosition;
 use App\Models\Lookups\LuEmploymentType;
+use App\Models\Lookups\LuExpenditureTier;
 use App\Models\Lookups\LuFeeTier;
 use App\Models\Lookups\LuGiftDisposition;
 use App\Models\Lookups\LuHqPosition;
@@ -49,6 +52,10 @@ class LookupController extends Controller
         'whistleblower-categories' => LuWhistleblowerCategory::class,
         'legal-forums' => LuLegalForum::class,
         'legal-urgency' => LuLegalUrgency::class,
+        // Bundle 5 — Financial, Procurement & Asset
+        'expenditure-tiers' => LuExpenditureTier::class,
+        'asset-categories' => LuAssetCategory::class,
+        'contract-types' => LuContractType::class,
     ];
 
     public function index(string $key, Request $request)

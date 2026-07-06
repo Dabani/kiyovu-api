@@ -33,6 +33,10 @@ class DatabaseSeeder extends Seeder
             LuWhistleblowerCategorySeeder::class,
             LuLegalForumSeeder::class,
             LuLegalUrgencySeeder::class,
+            // Bundle 5 — Financial, Procurement & Asset
+            LuExpenditureTierSeeder::class,
+            LuAssetCategorySeeder::class,
+            LuContractTypeSeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);

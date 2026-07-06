@@ -28,6 +28,13 @@ use App\Http\Controllers\Api\Disciplinary\DisciplinaryNoticeController;
 use App\Http\Controllers\Api\Disciplinary\LegalCaseRegisterController;
 use App\Http\Controllers\Api\Disciplinary\LegalMatterIntakeController;
 use App\Http\Controllers\Api\Disciplinary\WhistleblowerReportController;
+use App\Http\Controllers\Api\Financial\AssetHandoverController;
+use App\Http\Controllers\Api\Financial\AssetRegisterController;
+use App\Http\Controllers\Api\Financial\PaymentAuthorizationController;
+use App\Http\Controllers\Api\Financial\PettyCashVoucherController;
+use App\Http\Controllers\Api\Financial\ProcurementRfqController;
+use App\Http\Controllers\Api\Financial\ProcurementTenderController;
+use App\Http\Controllers\Api\Financial\WrittenContractController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
@@ -127,6 +134,28 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/legal-case-register/report', [LegalCaseRegisterController::class, 'report']);
     Route::apiResource('legal-case-register', LegalCaseRegisterController::class)->except(['show']);
 
+    // ---- Bundle 5: Financial, Procurement & Asset (FIN-001/003, PROC-002/003/004, ASSET-001/003) ----
+    Route::get('/payment-authorizations/report', [PaymentAuthorizationController::class, 'report']);
+    Route::apiResource('payment-authorizations', PaymentAuthorizationController::class)->except(['show']);
+
+    Route::get('/petty-cash-vouchers/report', [PettyCashVoucherController::class, 'report']);
+    Route::apiResource('petty-cash-vouchers', PettyCashVoucherController::class)->except(['show']);
+
+    Route::get('/procurement-rfqs/report', [ProcurementRfqController::class, 'report']);
+    Route::apiResource('procurement-rfqs', ProcurementRfqController::class)->except(['show']);
+
+    Route::get('/procurement-tenders/report', [ProcurementTenderController::class, 'report']);
+    Route::apiResource('procurement-tenders', ProcurementTenderController::class)->except(['show']);
+
+    Route::get('/written-contracts/report', [WrittenContractController::class, 'report']);
+    Route::apiResource('written-contracts', WrittenContractController::class)->except(['show']);
+
+    Route::get('/asset-register/report', [AssetRegisterController::class, 'report']);
+    Route::apiResource('asset-register', AssetRegisterController::class)->except(['show']);
+
+    Route::get('/asset-handovers/report', [AssetHandoverController::class, 'report']);
+    Route::apiResource('asset-handovers', AssetHandoverController::class)->except(['show']);
+
     // Module bundle route groups will be registered here, one per delivery:
-    // Bundle 5 (Financial, Procurement & Asset), Bundle 6 (Fan Clubs), ...
+    // Bundle 6 (Fan Clubs), Bundle 7 (Players & Safeguarding), Bundle 8 (Operations, Security & Commissions)
 });
