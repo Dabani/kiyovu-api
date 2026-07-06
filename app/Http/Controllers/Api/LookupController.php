@@ -4,24 +4,26 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lookups\LuDocumentClassification;
+use App\Models\Lookups\LuFeeTier;
 use App\Models\Lookups\LuLanguage;
+use App\Models\Lookups\LuMembershipCategory;
+use App\Models\Lookups\LuNomineeType;
+use App\Models\Lookups\LuPaymentMethod;
 use App\Models\Lookups\LuStatus;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class LookupController extends Controller
 {
-    /**
-     * Maps a URL-friendly key to its dedicated Eloquent model.
-     * Every module bundle delivery adds its own entries here
-     * (e.g. 'membership-categories' => LuMembershipCategory::class).
-     * The frontend never hardcodes options — it always calls
-     * GET /api/lookups/{key} and renders whatever comes back.
-     */
     private const MAP = [
         'languages' => LuLanguage::class,
         'statuses' => LuStatus::class,
         'document-classifications' => LuDocumentClassification::class,
+        // Bundle 1 — Membership & Honorary
+        'membership-categories' => LuMembershipCategory::class,
+        'fee-tiers' => LuFeeTier::class,
+        'payment-methods' => LuPaymentMethod::class,
+        'nominee-types' => LuNomineeType::class,
     ];
 
     public function index(string $key, Request $request)
