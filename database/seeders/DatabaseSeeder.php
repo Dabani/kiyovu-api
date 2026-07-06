@@ -19,6 +19,10 @@ class DatabaseSeeder extends Seeder
             LuFeeTierSeeder::class,
             LuPaymentMethodSeeder::class,
             LuNomineeTypeSeeder::class,
+            // Bundle 2 — HR & Recruitment
+            LuHqPositionSeeder::class,
+            LuEmploymentTypeSeeder::class,
+            LuGiftDispositionSeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);

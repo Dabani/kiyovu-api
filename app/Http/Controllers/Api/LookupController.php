@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lookups\LuDocumentClassification;
+use App\Models\Lookups\LuEmploymentType;
 use App\Models\Lookups\LuFeeTier;
+use App\Models\Lookups\LuGiftDisposition;
+use App\Models\Lookups\LuHqPosition;
 use App\Models\Lookups\LuLanguage;
 use App\Models\Lookups\LuMembershipCategory;
 use App\Models\Lookups\LuNomineeType;
@@ -24,6 +27,10 @@ class LookupController extends Controller
         'fee-tiers' => LuFeeTier::class,
         'payment-methods' => LuPaymentMethod::class,
         'nominee-types' => LuNomineeType::class,
+        // Bundle 2 — HR & Recruitment
+        'hq-positions' => LuHqPosition::class,
+        'employment-types' => LuEmploymentType::class,
+        'gift-dispositions' => LuGiftDisposition::class,
     ];
 
     public function index(string $key, Request $request)

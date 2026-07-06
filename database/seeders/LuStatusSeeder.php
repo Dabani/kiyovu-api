@@ -26,6 +26,13 @@ class LuStatusSeeder extends Seeder
             ['code' => 'member_inactive', 'label_en' => 'Inactive', 'label_fr' => 'Inactif', 'label_rw' => 'Ntibikora', 'applies_to' => 'members', 'color_hex' => '#95a5a6', 'sort_order' => 11],
             ['code' => 'member_suspended', 'label_en' => 'Suspended', 'label_fr' => 'Suspendu', 'label_rw' => 'Byahagaritswe', 'applies_to' => 'members', 'color_hex' => '#e67e22', 'sort_order' => 12],
             ['code' => 'member_terminated', 'label_en' => 'Terminated', 'label_fr' => 'Résilié', 'label_rw' => 'Byarangiye burundu', 'applies_to' => 'members', 'color_hex' => '#c0392b', 'sort_order' => 13],
+            // Recruitment pipeline (Art. 138) — HR-005 candidate lifecycle
+            ['code' => 'recruitment_applied', 'label_en' => 'Applied', 'label_fr' => 'Candidature Soumise', 'label_rw' => 'Yasabye', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#95a5a6', 'sort_order' => 14],
+            ['code' => 'recruitment_shortlisted', 'label_en' => 'Shortlisted', 'label_fr' => 'Présélectionné', 'label_rw' => 'Yatoranyijwe', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#f1c40f', 'sort_order' => 15],
+            ['code' => 'recruitment_interviewed', 'label_en' => 'Interviewed', 'label_fr' => 'Interviewé', 'label_rw' => 'Yabajijwe', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#3498db', 'sort_order' => 16],
+            ['code' => 'recruitment_recommended', 'label_en' => 'Recommended', 'label_fr' => 'Recommandé', 'label_rw' => 'Yasabiwe', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#9b59b6', 'sort_order' => 17],
+            ['code' => 'recruitment_appointed', 'label_en' => 'Appointed', 'label_fr' => 'Nommé', 'label_rw' => 'Yashyizweho', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#006400', 'sort_order' => 18],
+            ['code' => 'recruitment_rejected', 'label_en' => 'Not Selected', 'label_fr' => 'Non Retenu', 'label_rw' => 'Ntiyatoranyijwe', 'applies_to' => 'recruitment_candidates', 'color_hex' => '#c0392b', 'sort_order' => 19],
         ];
 
         foreach ($rows as $row) {

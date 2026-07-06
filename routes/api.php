@@ -10,6 +10,13 @@ use App\Http\Controllers\Api\Membership\MemberInactiveStatusRequestController;
 use App\Http\Controllers\Api\Membership\MemberInformationRequestController;
 use App\Http\Controllers\Api\Membership\MemberReinstatementRequestController;
 use App\Http\Controllers\Api\Membership\MemberResignationController;
+use App\Http\Controllers\Api\Hr\HrAppointmentRecommendationController;
+use App\Http\Controllers\Api\Hr\HrBackgroundCheckController;
+use App\Http\Controllers\Api\Hr\HrConflictOfInterestDeclarationController;
+use App\Http\Controllers\Api\Hr\HrEmploymentContractController;
+use App\Http\Controllers\Api\Hr\HrGiftDeclarationController;
+use App\Http\Controllers\Api\Hr\HrInterviewScoreController;
+use App\Http\Controllers\Api\Hr\RecruitmentCandidateController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
@@ -52,6 +59,28 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('honorary-nomination-dossiers', HonoraryNominationDossierController::class)
         ->except(['show']);
 
+    // ---- Bundle 2: HR & Recruitment (HR-001..007) ----
+    Route::get('/recruitment-candidates/report', [RecruitmentCandidateController::class, 'report']);
+    Route::apiResource('recruitment-candidates', RecruitmentCandidateController::class)->except(['show']);
+
+    Route::get('/hr-employment-contracts/report', [HrEmploymentContractController::class, 'report']);
+    Route::apiResource('hr-employment-contracts', HrEmploymentContractController::class)->except(['show']);
+
+    Route::get('/hr-background-checks/report', [HrBackgroundCheckController::class, 'report']);
+    Route::apiResource('hr-background-checks', HrBackgroundCheckController::class)->except(['show']);
+
+    Route::get('/hr-conflict-of-interest-declarations/report', [HrConflictOfInterestDeclarationController::class, 'report']);
+    Route::apiResource('hr-conflict-of-interest-declarations', HrConflictOfInterestDeclarationController::class)->except(['show']);
+
+    Route::get('/hr-gift-declarations/report', [HrGiftDeclarationController::class, 'report']);
+    Route::apiResource('hr-gift-declarations', HrGiftDeclarationController::class)->except(['show']);
+
+    Route::get('/hr-interview-scores/report', [HrInterviewScoreController::class, 'report']);
+    Route::apiResource('hr-interview-scores', HrInterviewScoreController::class)->except(['show']);
+
+    Route::get('/hr-appointment-recommendations/report', [HrAppointmentRecommendationController::class, 'report']);
+    Route::apiResource('hr-appointment-recommendations', HrAppointmentRecommendationController::class)->except(['show']);
+
     // Module bundle route groups will be registered here, one per delivery:
-    // Bundle 2 (HR & Recruitment), Bundle 3 (Elections), ...
+    // Bundle 3 (Elections), Bundle 4 (Disciplinary & Legal), ...
 });
