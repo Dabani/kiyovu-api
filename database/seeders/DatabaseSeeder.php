@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             LuHqPositionSeeder::class,
             LuEmploymentTypeSeeder::class,
             LuGiftDispositionSeeder::class,
+            // Bundle 3 — Elections
+            LuElectedPositionSeeder::class,
+            LuDisputeGroundSeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);

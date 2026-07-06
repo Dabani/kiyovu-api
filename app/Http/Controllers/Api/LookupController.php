@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lookups\LuDisputeGround;
 use App\Models\Lookups\LuDocumentClassification;
+use App\Models\Lookups\LuElectedPosition;
 use App\Models\Lookups\LuEmploymentType;
 use App\Models\Lookups\LuFeeTier;
 use App\Models\Lookups\LuGiftDisposition;
@@ -31,6 +33,9 @@ class LookupController extends Controller
         'hq-positions' => LuHqPosition::class,
         'employment-types' => LuEmploymentType::class,
         'gift-dispositions' => LuGiftDisposition::class,
+        // Bundle 3 — Elections
+        'elected-positions' => LuElectedPosition::class,
+        'dispute-grounds' => LuDisputeGround::class,
     ];
 
     public function index(string $key, Request $request)

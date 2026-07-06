@@ -17,6 +17,11 @@ use App\Http\Controllers\Api\Hr\HrEmploymentContractController;
 use App\Http\Controllers\Api\Hr\HrGiftDeclarationController;
 use App\Http\Controllers\Api\Hr\HrInterviewScoreController;
 use App\Http\Controllers\Api\Hr\RecruitmentCandidateController;
+use App\Http\Controllers\Api\Elections\ElectionDisputeController;
+use App\Http\Controllers\Api\Elections\ElectionHandoverReportController;
+use App\Http\Controllers\Api\Elections\ElectionNominationController;
+use App\Http\Controllers\Api\Elections\ElectionResultsCertificationController;
+use App\Http\Controllers\Api\Elections\ElectionTallySheetController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
@@ -81,6 +86,22 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/hr-appointment-recommendations/report', [HrAppointmentRecommendationController::class, 'report']);
     Route::apiResource('hr-appointment-recommendations', HrAppointmentRecommendationController::class)->except(['show']);
 
+    // ---- Bundle 3: Elections (ELEC-001..005) ----
+    Route::get('/election-nominations/report', [ElectionNominationController::class, 'report']);
+    Route::apiResource('election-nominations', ElectionNominationController::class)->except(['show']);
+
+    Route::get('/election-tally-sheets/report', [ElectionTallySheetController::class, 'report']);
+    Route::apiResource('election-tally-sheets', ElectionTallySheetController::class)->except(['show']);
+
+    Route::get('/election-results-certifications/report', [ElectionResultsCertificationController::class, 'report']);
+    Route::apiResource('election-results-certifications', ElectionResultsCertificationController::class)->except(['show']);
+
+    Route::get('/election-handover-reports/report', [ElectionHandoverReportController::class, 'report']);
+    Route::apiResource('election-handover-reports', ElectionHandoverReportController::class)->except(['show']);
+
+    Route::get('/election-disputes/report', [ElectionDisputeController::class, 'report']);
+    Route::apiResource('election-disputes', ElectionDisputeController::class)->except(['show']);
+
     // Module bundle route groups will be registered here, one per delivery:
-    // Bundle 3 (Elections), Bundle 4 (Disciplinary & Legal), ...
+    // Bundle 4 (Disciplinary & Legal), Bundle 5 (Financial, Procurement & Asset), ...
 });
