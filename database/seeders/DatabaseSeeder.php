@@ -14,7 +14,12 @@ class DatabaseSeeder extends Seeder
             LuDocumentClassificationSeeder::class,
             RoleAndPermissionSeeder::class,
             SuperAdminSeeder::class,
-            // Bundle seeders (lu_membership_categories, lu_fee_tiers, etc.)
+            // Bundle 1 — Membership & Honorary
+            LuMembershipCategorySeeder::class,
+            LuFeeTierSeeder::class,
+            LuPaymentMethodSeeder::class,
+            LuNomineeTypeSeeder::class,
+            // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);
     }

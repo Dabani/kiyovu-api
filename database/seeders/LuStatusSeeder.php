@@ -19,6 +19,13 @@ class LuStatusSeeder extends Seeder
             ['code' => 'draft', 'label_en' => 'Draft', 'label_fr' => 'Brouillon', 'label_rw' => 'Umushinga', 'applies_to' => 'general', 'color_hex' => '#7f8c8d', 'sort_order' => 7],
             ['code' => 'archived', 'label_en' => 'Archived', 'label_fr' => 'Archivé', 'label_rw' => 'Byabitswe', 'applies_to' => 'general', 'color_hex' => '#34495e', 'sort_order' => 8],
             ['code' => 'expired', 'label_en' => 'Expired', 'label_fr' => 'Expiré', 'label_rw' => 'Byarangiye', 'applies_to' => 'general', 'color_hex' => '#e74c3c', 'sort_order' => 9],
+            // Membership registry lifecycle (Art. 13(3)) — kept distinct from
+            // the generic codes above so `applies_to=members` dropdown filtering
+            // shows only the states that are valid for a registry entry.
+            ['code' => 'member_active', 'label_en' => 'Active', 'label_fr' => 'Actif', 'label_rw' => 'Bikora', 'applies_to' => 'members', 'color_hex' => '#006400', 'sort_order' => 10],
+            ['code' => 'member_inactive', 'label_en' => 'Inactive', 'label_fr' => 'Inactif', 'label_rw' => 'Ntibikora', 'applies_to' => 'members', 'color_hex' => '#95a5a6', 'sort_order' => 11],
+            ['code' => 'member_suspended', 'label_en' => 'Suspended', 'label_fr' => 'Suspendu', 'label_rw' => 'Byahagaritswe', 'applies_to' => 'members', 'color_hex' => '#e67e22', 'sort_order' => 12],
+            ['code' => 'member_terminated', 'label_en' => 'Terminated', 'label_fr' => 'Résilié', 'label_rw' => 'Byarangiye burundu', 'applies_to' => 'members', 'color_hex' => '#c0392b', 'sort_order' => 13],
         ];
 
         foreach ($rows as $row) {

@@ -95,9 +95,12 @@ class RoleAndPermissionSeeder extends Seeder
             );
         }
 
-        // Self-service roles: intentionally given no blanket permissions here.
-        // Their access is enforced at the policy/controller level, scoped to
-        // "own record only" (member sees own profile, player sees own file, etc.)
-        // rather than via role permissions — added when each bundle is built.
+        // Self-service roles: `member` may view/create their own registry
+        // requests (MEM-003..007); "own record only" is enforced by
+        // ScopesToOwnMember at the query level, not by this blanket grant.
+        Role::findByName('member')->givePermissionTo([
+            'membership.view', 'membership.create',
+        ]);
+        Role::findByName('honorary_member')->givePermissionTo(['membership.view']);
     }
 }
