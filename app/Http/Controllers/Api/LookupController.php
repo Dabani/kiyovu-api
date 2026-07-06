@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lookups\LuDisciplinaryCaseSource;
+use App\Models\Lookups\LuDisciplinarySanction;
 use App\Models\Lookups\LuDisputeGround;
 use App\Models\Lookups\LuDocumentClassification;
 use App\Models\Lookups\LuElectedPosition;
@@ -11,10 +13,14 @@ use App\Models\Lookups\LuFeeTier;
 use App\Models\Lookups\LuGiftDisposition;
 use App\Models\Lookups\LuHqPosition;
 use App\Models\Lookups\LuLanguage;
+use App\Models\Lookups\LuLegalForum;
+use App\Models\Lookups\LuLegalUrgency;
 use App\Models\Lookups\LuMembershipCategory;
 use App\Models\Lookups\LuNomineeType;
+use App\Models\Lookups\LuNoticeType;
 use App\Models\Lookups\LuPaymentMethod;
 use App\Models\Lookups\LuStatus;
+use App\Models\Lookups\LuWhistleblowerCategory;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -36,6 +42,13 @@ class LookupController extends Controller
         // Bundle 3 — Elections
         'elected-positions' => LuElectedPosition::class,
         'dispute-grounds' => LuDisputeGround::class,
+        // Bundle 4 — Disciplinary & Legal
+        'disciplinary-case-sources' => LuDisciplinaryCaseSource::class,
+        'disciplinary-sanctions' => LuDisciplinarySanction::class,
+        'notice-types' => LuNoticeType::class,
+        'whistleblower-categories' => LuWhistleblowerCategory::class,
+        'legal-forums' => LuLegalForum::class,
+        'legal-urgency' => LuLegalUrgency::class,
     ];
 
     public function index(string $key, Request $request)

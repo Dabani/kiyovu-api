@@ -22,6 +22,12 @@ use App\Http\Controllers\Api\Elections\ElectionHandoverReportController;
 use App\Http\Controllers\Api\Elections\ElectionNominationController;
 use App\Http\Controllers\Api\Elections\ElectionResultsCertificationController;
 use App\Http\Controllers\Api\Elections\ElectionTallySheetController;
+use App\Http\Controllers\Api\Disciplinary\DisciplinaryCaseController;
+use App\Http\Controllers\Api\Disciplinary\DisciplinaryDecisionController;
+use App\Http\Controllers\Api\Disciplinary\DisciplinaryNoticeController;
+use App\Http\Controllers\Api\Disciplinary\LegalCaseRegisterController;
+use App\Http\Controllers\Api\Disciplinary\LegalMatterIntakeController;
+use App\Http\Controllers\Api\Disciplinary\WhistleblowerReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
@@ -102,6 +108,25 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/election-disputes/report', [ElectionDisputeController::class, 'report']);
     Route::apiResource('election-disputes', ElectionDisputeController::class)->except(['show']);
 
+    // ---- Bundle 4: Disciplinary & Legal (DISC-001/002/003/005, LEG-001/002) ----
+    Route::get('/disciplinary-cases/report', [DisciplinaryCaseController::class, 'report']);
+    Route::apiResource('disciplinary-cases', DisciplinaryCaseController::class)->except(['show']);
+
+    Route::get('/disciplinary-decisions/report', [DisciplinaryDecisionController::class, 'report']);
+    Route::apiResource('disciplinary-decisions', DisciplinaryDecisionController::class)->except(['show']);
+
+    Route::get('/disciplinary-notices/report', [DisciplinaryNoticeController::class, 'report']);
+    Route::apiResource('disciplinary-notices', DisciplinaryNoticeController::class)->except(['show']);
+
+    Route::get('/whistleblower-reports/report', [WhistleblowerReportController::class, 'report']);
+    Route::apiResource('whistleblower-reports', WhistleblowerReportController::class)->except(['show']);
+
+    Route::get('/legal-matter-intakes/report', [LegalMatterIntakeController::class, 'report']);
+    Route::apiResource('legal-matter-intakes', LegalMatterIntakeController::class)->except(['show']);
+
+    Route::get('/legal-case-register/report', [LegalCaseRegisterController::class, 'report']);
+    Route::apiResource('legal-case-register', LegalCaseRegisterController::class)->except(['show']);
+
     // Module bundle route groups will be registered here, one per delivery:
-    // Bundle 4 (Disciplinary & Legal), Bundle 5 (Financial, Procurement & Asset), ...
+    // Bundle 5 (Financial, Procurement & Asset), Bundle 6 (Fan Clubs), ...
 });

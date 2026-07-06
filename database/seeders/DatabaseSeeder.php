@@ -26,6 +26,13 @@ class DatabaseSeeder extends Seeder
             // Bundle 3 — Elections
             LuElectedPositionSeeder::class,
             LuDisputeGroundSeeder::class,
+            // Bundle 4 — Disciplinary & Legal
+            LuDisciplinaryCaseSourceSeeder::class,
+            LuDisciplinarySanctionSeeder::class,
+            LuNoticeTypeSeeder::class,
+            LuWhistleblowerCategorySeeder::class,
+            LuLegalForumSeeder::class,
+            LuLegalUrgencySeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);
