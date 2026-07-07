@@ -35,6 +35,24 @@ use App\Http\Controllers\Api\Financial\PettyCashVoucherController;
 use App\Http\Controllers\Api\Financial\ProcurementRfqController;
 use App\Http\Controllers\Api\Financial\ProcurementTenderController;
 use App\Http\Controllers\Api\Financial\WrittenContractController;
+use App\Http\Controllers\Api\FanClubs\FanClubController;
+use App\Http\Controllers\Api\FanClubs\FanClubAnnualReportController;
+use App\Http\Controllers\Api\FanClubs\FanClubDeregistrationWarningController;
+use App\Http\Controllers\Api\FanClubs\FanClubFinancialSummaryController;
+use App\Http\Controllers\Api\FanClubs\FanClubMembershipRegisterController;
+use App\Http\Controllers\Api\FanClubs\FanClubPaymentConfirmationController;
+use App\Http\Controllers\Api\FanClubs\FanIncidentReportController;
+use App\Http\Controllers\Api\Players\AntiDopingDeclarationController;
+use App\Http\Controllers\Api\Players\CodeOfConductAcknowledgementController;
+use App\Http\Controllers\Api\Operations\CommissionAnnualWorkPlanController;
+use App\Http\Controllers\Api\Operations\CommissionKpiReportController;
+use App\Http\Controllers\Api\Operations\GuestRegisterController;
+use App\Http\Controllers\Api\Operations\SecurityIncidentReportController;
+use App\Http\Controllers\Api\Players\ParentalConsentFormController;
+use App\Http\Controllers\Api\Players\PlayerController;
+use App\Http\Controllers\Api\Players\PlayerContractController;
+use App\Http\Controllers\Api\Players\PlayerLoanAgreementController;
+use App\Http\Controllers\Api\Players\SafeguardingConcernReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/auth/login', [AuthController::class, 'login'])->middleware('throttle:10,1');
@@ -156,6 +174,60 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/asset-handovers/report', [AssetHandoverController::class, 'report']);
     Route::apiResource('asset-handovers', AssetHandoverController::class)->except(['show']);
 
-    // Module bundle route groups will be registered here, one per delivery:
-    // Bundle 6 (Fan Clubs), Bundle 7 (Players & Safeguarding), Bundle 8 (Operations, Security & Commissions)
+    // ---- Bundle 6: Fan Clubs (FAN-001..008) ----
+    Route::get('/fan-clubs/report', [FanClubController::class, 'report']);
+    Route::apiResource('fan-clubs', FanClubController::class)->except(['show']);
+
+    Route::get('/fan-club-annual-reports/report', [FanClubAnnualReportController::class, 'report']);
+    Route::apiResource('fan-club-annual-reports', FanClubAnnualReportController::class)->except(['show']);
+
+    Route::get('/fan-club-financial-summaries/report', [FanClubFinancialSummaryController::class, 'report']);
+    Route::apiResource('fan-club-financial-summaries', FanClubFinancialSummaryController::class)->except(['show']);
+
+    Route::get('/fan-incident-reports/report', [FanIncidentReportController::class, 'report']);
+    Route::apiResource('fan-incident-reports', FanIncidentReportController::class)->except(['show']);
+
+    Route::get('/fan-club-deregistration-warnings/report', [FanClubDeregistrationWarningController::class, 'report']);
+    Route::apiResource('fan-club-deregistration-warnings', FanClubDeregistrationWarningController::class)->except(['show']);
+
+    Route::get('/fan-club-payment-confirmations/report', [FanClubPaymentConfirmationController::class, 'report']);
+    Route::apiResource('fan-club-payment-confirmations', FanClubPaymentConfirmationController::class)->except(['show']);
+
+    Route::get('/fan-club-membership-registers/report', [FanClubMembershipRegisterController::class, 'report']);
+    Route::apiResource('fan-club-membership-registers', FanClubMembershipRegisterController::class)->except(['show']);
+
+    // ---- Bundle 7: Players & Safeguarding (PLAYER-001..004, SAFE-001..003) ----
+    Route::get('/players/report', [PlayerController::class, 'report']);
+    Route::apiResource('players', PlayerController::class)->except(['show']);
+
+    Route::get('/player-contracts/report', [PlayerContractController::class, 'report']);
+    Route::apiResource('player-contracts', PlayerContractController::class)->except(['show']);
+
+    Route::get('/player-loan-agreements/report', [PlayerLoanAgreementController::class, 'report']);
+    Route::apiResource('player-loan-agreements', PlayerLoanAgreementController::class)->except(['show']);
+
+    Route::get('/anti-doping-declarations/report', [AntiDopingDeclarationController::class, 'report']);
+    Route::apiResource('anti-doping-declarations', AntiDopingDeclarationController::class)->except(['show']);
+
+    Route::get('/safeguarding-concern-reports/report', [SafeguardingConcernReportController::class, 'report']);
+    Route::apiResource('safeguarding-concern-reports', SafeguardingConcernReportController::class)->except(['show']);
+
+    Route::get('/parental-consent-forms/report', [ParentalConsentFormController::class, 'report']);
+    Route::apiResource('parental-consent-forms', ParentalConsentFormController::class)->except(['show']);
+
+    Route::get('/code-of-conduct-acknowledgements/report', [CodeOfConductAcknowledgementController::class, 'report']);
+    Route::apiResource('code-of-conduct-acknowledgements', CodeOfConductAcknowledgementController::class)->except(['show']);
+
+    // ---- Bundle 8: Operations, Security & Commissions (OPS-001, SEC-001, COMM-001/002) — final bundle ----
+    Route::get('/guest-registers/report', [GuestRegisterController::class, 'report']);
+    Route::apiResource('guest-registers', GuestRegisterController::class)->except(['show']);
+
+    Route::get('/security-incident-reports/report', [SecurityIncidentReportController::class, 'report']);
+    Route::apiResource('security-incident-reports', SecurityIncidentReportController::class)->except(['show']);
+
+    Route::get('/commission-annual-work-plans/report', [CommissionAnnualWorkPlanController::class, 'report']);
+    Route::apiResource('commission-annual-work-plans', CommissionAnnualWorkPlanController::class)->except(['show']);
+
+    Route::get('/commission-kpi-reports/report', [CommissionKpiReportController::class, 'report']);
+    Route::apiResource('commission-kpi-reports', CommissionKpiReportController::class)->except(['show']);
 });

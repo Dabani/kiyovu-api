@@ -37,6 +37,13 @@ class DatabaseSeeder extends Seeder
             LuExpenditureTierSeeder::class,
             LuAssetCategorySeeder::class,
             LuContractTypeSeeder::class,
+            // Bundle 6 — Fan Clubs
+            LuIncidentTypeSeeder::class,
+            LuFanSanctionSeeder::class,
+            // Bundle 7 — Players & Safeguarding
+            LuPlayerTeamSeeder::class,
+            LuLoanDirectionSeeder::class,
+            LuSignatoryTypeSeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);

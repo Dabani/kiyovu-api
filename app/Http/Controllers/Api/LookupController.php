@@ -12,16 +12,21 @@ use App\Models\Lookups\LuDocumentClassification;
 use App\Models\Lookups\LuElectedPosition;
 use App\Models\Lookups\LuEmploymentType;
 use App\Models\Lookups\LuExpenditureTier;
+use App\Models\Lookups\LuFanSanction;
 use App\Models\Lookups\LuFeeTier;
 use App\Models\Lookups\LuGiftDisposition;
 use App\Models\Lookups\LuHqPosition;
+use App\Models\Lookups\LuIncidentType;
 use App\Models\Lookups\LuLanguage;
 use App\Models\Lookups\LuLegalForum;
 use App\Models\Lookups\LuLegalUrgency;
+use App\Models\Lookups\LuLoanDirection;
 use App\Models\Lookups\LuMembershipCategory;
 use App\Models\Lookups\LuNomineeType;
 use App\Models\Lookups\LuNoticeType;
 use App\Models\Lookups\LuPaymentMethod;
+use App\Models\Lookups\LuPlayerTeam;
+use App\Models\Lookups\LuSignatoryType;
 use App\Models\Lookups\LuStatus;
 use App\Models\Lookups\LuWhistleblowerCategory;
 use Illuminate\Http\Request;
@@ -56,6 +61,13 @@ class LookupController extends Controller
         'expenditure-tiers' => LuExpenditureTier::class,
         'asset-categories' => LuAssetCategory::class,
         'contract-types' => LuContractType::class,
+        // Bundle 6 — Fan Clubs
+        'incident-types' => LuIncidentType::class,
+        'fan-sanctions' => LuFanSanction::class,
+        // Bundle 7 — Players & Safeguarding
+        'player-teams' => LuPlayerTeam::class,
+        'loan-directions' => LuLoanDirection::class,
+        'signatory-types' => LuSignatoryType::class,
     ];
 
     public function index(string $key, Request $request)

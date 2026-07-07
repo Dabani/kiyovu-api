@@ -102,5 +102,26 @@ class RoleAndPermissionSeeder extends Seeder
             'membership.view', 'membership.create',
         ]);
         Role::findByName('honorary_member')->givePermissionTo(['membership.view']);
+
+        // hq_business covers the SLO (Supporter Liaison Officer) — full Fan Clubs bundle access.
+        Role::findByName('hq_business')->givePermissionTo([
+            'fan_clubs.view', 'fan_clubs.create', 'fan_clubs.update', 'fan_clubs.export', 'fan_clubs.report',
+        ]);
+
+        // fan_club_rep: self-service, scoped to their own fan club at the query level
+        // (not yet implemented as a ScopesToOwnFanClub trait in this bundle — flagged
+        // in the Bundle 6 README as a follow-up, matching the same gap noted for
+        // Bundle 1's member-picker scoping).
+        Role::findByName('fan_club_rep')->givePermissionTo(['fan_clubs.view', 'fan_clubs.create']);
+
+        // hq_sport covers the Sporting Director, Head Coach, Medical Doctor, Child
+        // Safeguarding Officer — full Players & Safeguarding bundle access.
+        Role::findByName('hq_sport')->givePermissionTo([
+            'players_safeguarding.view', 'players_safeguarding.create', 'players_safeguarding.update',
+            'players_safeguarding.export', 'players_safeguarding.report',
+        ]);
+        Role::findByName('director_technical_affairs')->givePermissionTo([
+            'players_safeguarding.view', 'players_safeguarding.report',
+        ]);
     }
 }
