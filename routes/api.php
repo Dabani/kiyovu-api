@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\LookupController;
+use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\Membership\HonoraryNominationController;
 use App\Http\Controllers\Api\Membership\HonoraryNominationDossierController;
 use App\Http\Controllers\Api\Membership\MemberController;
@@ -62,6 +64,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/auth/me', [AuthController::class, 'me']);
 
     Route::get('/lookups/{key}', [LookupController::class, 'index']);
+
+    // ---- Platform administration: User Management (super_admin only) ----
+    Route::get('/roles', [RoleController::class, 'index']);
+    Route::post('/users/{user}/reset-password', [UserController::class, 'resetPassword']);
+    Route::apiResource('users', UserController::class);
 
     // ---- Bundle 1: Membership & Honorary (MEM-001..007, HON-001/002) ----
     Route::get('/members/report', [MemberController::class, 'report']);
