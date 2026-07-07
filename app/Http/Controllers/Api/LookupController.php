@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Lookups\LuAssetCategory;
+use App\Models\Lookups\LuCommissionPillar;
 use App\Models\Lookups\LuContractType;
 use App\Models\Lookups\LuDisciplinaryCaseSource;
 use App\Models\Lookups\LuDisciplinarySanction;
@@ -68,6 +69,8 @@ class LookupController extends Controller
         'player-teams' => LuPlayerTeam::class,
         'loan-directions' => LuLoanDirection::class,
         'signatory-types' => LuSignatoryType::class,
+        // Bundle 8 — Operations, Security & Commissions
+        'commission-pillars' => LuCommissionPillar::class,
     ];
 
     public function index(string $key, Request $request)

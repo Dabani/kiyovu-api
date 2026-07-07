@@ -123,5 +123,14 @@ class RoleAndPermissionSeeder extends Seeder
         Role::findByName('director_technical_affairs')->givePermissionTo([
             'players_safeguarding.view', 'players_safeguarding.report',
         ]);
+
+        // hq_business also covers Operations Director / Safety & Security Officer — full Ops bundle access.
+        Role::findByName('hq_business')->givePermissionTo([
+            'operations_security_commissions.view', 'operations_security_commissions.create',
+            'operations_security_commissions.update', 'operations_security_commissions.report',
+        ]);
+        Role::findByName('board_director')->givePermissionTo([
+            'operations_security_commissions.view', 'operations_security_commissions.report',
+        ]);
     }
 }

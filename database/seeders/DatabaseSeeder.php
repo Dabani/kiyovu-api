@@ -44,6 +44,8 @@ class DatabaseSeeder extends Seeder
             LuPlayerTeamSeeder::class,
             LuLoanDirectionSeeder::class,
             LuSignatoryTypeSeeder::class,
+            // Bundle 8 — Operations, Security & Commissions
+            LuCommissionPillarSeeder::class,
             // Further bundle seeders (lu_* tables for HR, Elections, etc.)
             // are appended here as each module bundle is delivered.
         ]);
