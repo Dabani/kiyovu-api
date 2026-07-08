@@ -67,4 +67,10 @@ class User extends Authenticatable
             ->where('scope_id', $scopeId)
             ->exists();
     }
+
+    /** Sends our SPA-aware reset notification instead of Laravel's default Blade-route version. */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+    }
 }

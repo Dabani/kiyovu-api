@@ -6,7 +6,7 @@ screens wired in.
 
 ## What this bundle delivers
 
-All 6 forms, sourced from Articles 53, 274, 613, 907, 1125, and 1140–1158
+All 6 forms, sourced from Articles 53, 34, 110, 907, 1125, and 222–228
 (conflict resolution procedure, whistleblower protections, legal matter
 handling, disciplinary chamber process):
 
@@ -36,7 +36,7 @@ Art. 613), `lu_legal_urgency`.
 - **Anonymity is enforced server-side, not just hidden in the UI.**
   `WhistleblowerReportController::store()` forcibly nulls `reporter_name`
   whenever `is_anonymous` is true, regardless of what the request body
-  contains — Art. 274's anonymity protection doesn't depend on the frontend
+  contains — Art. 34's anonymity protection doesn't depend on the frontend
   behaving correctly.
 - **The "reported to President" flag on LEG-001 is computed, not manually
   set.** Art. 613 says any matter with a deadline under 14 days must be

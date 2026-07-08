@@ -90,7 +90,7 @@ No new npm packages needed for Bundle 1 — everything reuses Phase 2's stack.
 - **Business rules enforced server-side, not just in the form:** the MEM-004
   two-year inactive-status cap (Art. 17) is computed on save; HON-001 refuses
   to move a nomination to `approved` without both Executive Organ *and* Board
-  endorsement (Art. 20); approving a MEM-006 resignation or MEM-007
+  endorsement (Art. 37); approving a MEM-006 resignation or MEM-007
   reinstatement automatically updates the member's registry status.
 - **PDF reports** use a shared brand-styled Blade layout (`layouts/report.blade.php`)
   with the green header band — `members.blade.php` is bespoke for the richer

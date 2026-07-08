@@ -34,9 +34,9 @@ pipeline (`recruitment_applied` → `recruitment_appointed`/`recruitment_rejecte
   MEM-001/002 sharing the `members` table.
 - **HR-002 works for candidates and existing staff alike.** `candidate_id` is
   nullable — the Child Safeguarding Officer's annual re-checks on existing
-  Sport Division staff (Art. 111) don't need a fabricated candidate record.
+  Sport Division staff (Art. 214) don't need a fabricated candidate record.
 - **Business rules enforced server-side:** HR-004 requires the value exceed
-  RWF 30,000 before the record is even accepted (Art. 128's actual
+  RWF 30,000 before the record is even accepted (Art. 219's actual
   threshold, not just a UI hint); HR-003 auto-computes `next_annual_update_due`
   as declaration date + 1 year (Art. 144).
 - **`lu_hq_positions.involves_minors`** is there so a future pass can

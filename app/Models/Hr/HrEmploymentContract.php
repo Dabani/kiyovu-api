@@ -15,7 +15,7 @@ class HrEmploymentContract extends Model
     use Auditable, SoftDeletes;
 
     protected $fillable = [
-        'candidate_id', 'employee_full_name', 'position_id', 'employment_type_id',
+        'candidate_id', 'user_id', 'employee_full_name', 'position_id', 'employment_type_id',
         'duties_and_kpis', 'qualifications_required', 'reporting_line',
         'remuneration_rwf_monthly', 'working_hours', 'term_start', 'term_end',
         'termination_grounds', 'confidentiality_acknowledged', 'ceo_signed_on',
@@ -37,6 +37,11 @@ class HrEmploymentContract extends Model
     public function candidate(): BelongsTo
     {
         return $this->belongsTo(RecruitmentCandidate::class, 'candidate_id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function position(): BelongsTo
